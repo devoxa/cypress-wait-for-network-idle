@@ -1,0 +1,11 @@
+# Compiled Output
+dist/
+command.d.ts
+
+# Dependencies
+node_modules/
+yarn-debug.log*
+yarn-error.log*
+
+# Development Environments
+.history/

@@ -1,0 +1,36 @@
+{
+  "name": "@devoxa/cypress-wait-for-network-idle",
+  "description": "Wait for the network to be idle before continuing during Cypress runs",
+  "version": "0.0.0",
+  "license": "MIT",
+  "repository": {
+    "url": "https://github.com/devoxa/cypress-wait-for-network-idle"
+  },
+  "scripts": {
+    "test": "cypress run",
+    "format": "prettier --ignore-path='.gitignore' --list-different --write .",
+    "format:check": "prettier --ignore-path='.gitignore' --check .",
+    "lint": "eslint --ignore-path='.gitignore' '{src,tests}/**/*.ts'",
+    "build": "rm -rf dist/ && tsc && cp ./dist/command.d.ts .",
+    "preversion": "yarn build"
+  },
+  "eslintConfig": {
+    "extends": "@devoxa"
+  },
+  "prettier": "@devoxa/prettier-config",
+  "peerDependencies": {
+    "cypress": "^6.8.0 || ^7.0.0 || ^8.0.0 || ^9.0.0"
+  },
+  "devDependencies": {
+    "@devoxa/eslint-config": "3.0.1",
+    "@devoxa/prettier-config": "1.0.2",
+    "@types/node": "16.11.12",
+    "cypress": "9.1.1",
+    "eslint": "8.4.1",
+    "prettier": "2.5.1",
+    "typescript": "4.5.4"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
