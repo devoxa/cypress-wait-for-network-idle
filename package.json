@@ -27,7 +27,7 @@
     "@types/node": "16.11.12",
     "cypress": "9.1.1",
     "eslint": "8.4.1",
-    "express": "^4.17.1",
+    "express": "4.17.1",
     "prettier": "2.5.1",
     "typescript": "4.5.4"
   },
