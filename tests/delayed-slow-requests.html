@@ -6,20 +6,12 @@
       }
 
       async function main() {
-        for (let i = 0; i !== 15; i++) {
-          await fetch('/data')
-          await sleep(100)
-        }
-
-        document.body.innerHTML = '<h1>First</h1>'
-        await sleep(200)
-
         for (let i = 0; i !== 5; i++) {
-          await fetch('/data')
+          await fetch('/slow')
           await sleep(350)
         }
 
-        document.body.innerHTML = '<h1>Second</h1>'
+        document.body.innerHTML = '<h1>Done</h1>'
       }
 
       main()
