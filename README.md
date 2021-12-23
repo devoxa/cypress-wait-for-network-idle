@@ -43,6 +43,8 @@
 yarn add --dev @devoxa/cypress-wait-for-network-idle
 ```
 
+The package also has a peer dependency on `cypress@^7.3.0`.
+
 2. Import the command in `cypress/support/commands.ts`:
 
 ```ts
