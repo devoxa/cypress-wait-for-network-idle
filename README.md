@@ -55,15 +55,15 @@ addWaitForNetworkIdleCommand()
 ```ts
 describe('SignInPage', () => {
   it('waits for network requests', () => {
-    cy.waitForNetworkIdlePrepare('identifier')
+    cy.waitForNetworkIdlePrepare()
     cy.visit('/sign-in')
-    cy.waitForNetworkIdle('identifier')
+    cy.waitForNetworkIdle()
   })
 
   it('waits for network requests that have a delay between them', () => {
-    cy.waitForNetworkIdlePrepare('another-identifier')
+    cy.waitForNetworkIdlePrepare()
     cy.visit('/sign-in')
-    cy.waitForNetworkIdle('another-identifier', { minIdleTime: 500 })
+    cy.waitForNetworkIdle({ minIdleTime: 500 })
   })
 })
 ```

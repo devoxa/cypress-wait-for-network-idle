@@ -3,6 +3,7 @@ describe('cypress-wait-for-network-idle', () => {
     cy.waitForNetworkIdlePrepare()
     cy.visit('http://localhost:8080/no-requests')
     cy.waitForNetworkIdle()
+
     cy.get('h1', { timeout: 0 }).should('contain', 'Done')
   })
 
@@ -10,6 +11,7 @@ describe('cypress-wait-for-network-idle', () => {
     cy.waitForNetworkIdlePrepare()
     cy.visit('http://localhost:8080/fast-requests')
     cy.waitForNetworkIdle()
+
     cy.get('h1', { timeout: 0 }).should('contain', 'Done')
   })
 
@@ -17,6 +19,7 @@ describe('cypress-wait-for-network-idle', () => {
     cy.waitForNetworkIdlePrepare()
     cy.visit('http://localhost:8080/delayed-fast-requests')
     cy.waitForNetworkIdle({ timeout: 5000, minIdleTime: 500 })
+
     cy.get('h1', { timeout: 0 }).should('contain', 'Done')
   })
 
@@ -24,10 +27,12 @@ describe('cypress-wait-for-network-idle', () => {
     cy.waitForNetworkIdlePrepare()
     cy.visit('http://localhost:8080/multi-stage-fast-requests')
     cy.waitForNetworkIdle()
+
     cy.get('h1', { timeout: 0 }).should('contain', 'Done 1')
 
     cy.wait(500)
     cy.waitForNetworkIdle()
+
     cy.get('h1', { timeout: 0 }).should('contain', 'Done 2')
   })
 
@@ -35,6 +40,7 @@ describe('cypress-wait-for-network-idle', () => {
     cy.waitForNetworkIdlePrepare()
     cy.visit('http://localhost:8080/slow-requests')
     cy.waitForNetworkIdle({ timeout: 10000, minIdleTime: 200 })
+
     cy.get('h1', { timeout: 0 }).should('contain', 'Done')
   })
 
@@ -42,6 +48,7 @@ describe('cypress-wait-for-network-idle', () => {
     cy.waitForNetworkIdlePrepare()
     cy.visit('http://localhost:8080/delayed-slow-requests')
     cy.waitForNetworkIdle({ timeout: 10000, minIdleTime: 500 })
+
     cy.get('h1', { timeout: 0 }).should('contain', 'Done')
   })
 })
