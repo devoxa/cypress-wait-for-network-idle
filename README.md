@@ -54,17 +54,25 @@ addWaitForNetworkIdleCommand()
 
 ```ts
 describe('SignInPage', () => {
-  it('renders the page successfully', () => {
+  it('waits for network requests', () => {
+    cy.waitForNetworkIdlePrepare('identifier')
     cy.visit('/sign-in')
-    cy.waitForNetworkIdle()
+    cy.waitForNetworkIdle('identifier')
+  })
+
+  it('waits for network requests that have a delay between them', () => {
+    cy.waitForNetworkIdlePrepare('another-identifier')
+    cy.visit('/sign-in')
+    cy.waitForNetworkIdle('another-identifier', { minIdleTime: 500 })
   })
 })
 ```
 
 Additional available options:
 
-- `timeout`: The maximum time to wait (in ms) for the network to idle, defaults to `2000`
-- `minIdleTime`: The time to wait (in ms) after network activity ceases, defaults to `200`
+- `timeout`: The maximum time (in ms) to wait for the network to idle, defaults to `2000`
+- `minIdleTime`: The time (in ms) to wait for another request after network activity ceases,
+  defaults to `200`
 
 ## Contributors
 

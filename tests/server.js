@@ -18,6 +18,11 @@ app.get('/delayed-fast-requests', (request, response) => {
   response.send(html)
 })
 
+app.get('/multi-stage-fast-requests', (request, response) => {
+  const html = fs.readFileSync(__dirname + '/multi-stage-fast-requests.html', 'utf-8')
+  response.send(html)
+})
+
 app.get('/slow-requests', (request, response) => {
   const html = fs.readFileSync(__dirname + '/slow-requests.html', 'utf-8')
   response.send(html)
