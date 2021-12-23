@@ -21,13 +21,13 @@ export function addWaitForNetworkIdleCommand() {
   Cypress.Commands.add('waitForNetworkIdle', function (pOptions?: WaitForNetworkIdleOptions) {
     const options = { timeout: 2000, minIdleTime: 200, ...pOptions }
 
-    return cy.window().then({ timeout: options.timeout }, (window) => {
+    return cy.window().then({ timeout: options.timeout }, ($window) => {
       return new Cypress.Promise((resolve) => {
-        let timeout = setTimeout(resolve, options.minIdleTime)
+        let timeout = $window.setTimeout(resolve, options.minIdleTime)
 
-        const observer = new window.PerformanceObserver(() => {
-          clearTimeout(timeout)
-          timeout = setTimeout(resolve, options.minIdleTime)
+        const observer = new $window.PerformanceObserver(() => {
+          $window.clearTimeout(timeout)
+          timeout = $window.setTimeout(resolve, options.minIdleTime)
         })
 
         observer.observe({ entryTypes: ['resource'] })
